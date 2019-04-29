@@ -1,0 +1,5 @@
+<div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-around center">
+  <div fxFlex=30% *ngFor="let film of films">
+    <app-film-item [film]="film"></app-film-item>
+  </div>
+</div>
