@@ -9,7 +9,13 @@ mat-card  {
   /* Here you can use wherever you want to specify the width and also the height of the <img>*/
   /*height: 80%;*/
 }
+.menu-toolbar {
+  background-color: white;
+}
 
-div {
-  color: red
+.example-spacer {
+  flex: 1 1 auto;
+}
+.mat-form-field{
+  width: 190px;
 }
