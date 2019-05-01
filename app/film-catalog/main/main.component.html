@@ -1,7 +1,6 @@
-<h2>Вас приветсвует приложение о фильмах</h2><br>
-
+<h2>Популярные фильмы</h2><br>
 <mat-tab-group>
-  <mat-tab label="First"> Content 1 </mat-tab>
-  <mat-tab label="Second"> Content 2 </mat-tab>
-  <mat-tab label="Third"> Content 3 </mat-tab>
+  <mat-tab *ngFor="let film of films" label="{{film.name}}">
+    <div>{{film.description}}</div>
+  </mat-tab>
 </mat-tab-group>
