@@ -4,4 +4,5 @@ export class FilmModel {
   year: string;
   imgUrl: string;
   description: string;
+  favorite: boolean;
 }

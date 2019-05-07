@@ -1,22 +1,20 @@
 <mat-card fxFlex>
   <mat-card-header>
     <mat-card-title>
-      <h5>{{film.name}}</h5>
+      <h5>{{ film.name }}</h5>
     </mat-card-title>
-    <mat-card-subtitle>Год : {{film.year}}</mat-card-subtitle>
+    <mat-card-subtitle>Год : {{ film.year }}</mat-card-subtitle>
   </mat-card-header>
   <mat-card-content fxLayoutAlign="center center">
-    <img mat-card-image src="{{film.imgUrl}}" alt="{{film.name}}">
+    <img mat-card-image src="{{ film.imgUrl }}" alt="{{ film.name }}" />
   </mat-card-content>
   <mat-card-content>
-    <details-inner>
-      {{film.description | slice:0:100}}...
-    </details-inner>
+    <details-inner> {{ film.description | slice: 0:100 }}... </details-inner>
   </mat-card-content>
   <mat-card-content>
-    <section class="example-section">
-      <mat-checkbox class="example-margin" [(ngModel)]="checked" (change)="addToFavorites()" color="primary">В
-        избранное</mat-checkbox>
-    </section>
+    <button mat-button class="favbtn" (click)="sendToParents(film.id)" color="primary">
+      <mat-icon *ngIf="!film.favorite" color="primary">favorite_border</mat-icon>
+      <mat-icon *ngIf="film.favorite" color="primary">favorite</mat-icon>
+    </button>
   </mat-card-content>
 </mat-card>

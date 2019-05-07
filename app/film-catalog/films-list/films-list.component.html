@@ -19,6 +19,6 @@
 
 <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-around center">
   <div fxFlex=30% *ngFor="let film of films">
-    <app-film-item [film]="film" (markFavorite)="addToFavorites($event)"></app-film-item>
+    <app-film-item [film]="film" (markFavorite)="changeFavorites($event)"></app-film-item>
   </div>
 </div>

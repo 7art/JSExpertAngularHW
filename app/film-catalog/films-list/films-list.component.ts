@@ -16,15 +16,20 @@ export class FilmsComponent implements OnInit {
     { name: "По дате: 0-9", value: 3 },
     { name: "По дате: 9-0", value: 4 }
   ];
-  constructor(private svc: FilmService) {}
+  constructor(private filmService: FilmService) {}
 
   ngOnInit() {
-    this.films = this.svc.getFilms();
+    this.films = this.filmService.getFilms();
+    this.getFavoritesCount();
   }
   doSort() {
-    this.films = this.svc.sortFilms(this.selectedOption);
+    this.films = this.filmService.sortFilms(this.selectedOption);
   }
-  addToFavorites(eventParam) {
-    eventParam ? this.favoriteCount++ : this.favoriteCount--;
+  changeFavorites(filmId: number) {
+    this.films = this.filmService.changeFavoriteProperty(filmId);
+    this.getFavoritesCount();
+  }
+  getFavoritesCount() {
+    this.favoriteCount = this.filmService.countFavorites();
   }
 }

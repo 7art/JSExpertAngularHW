@@ -6,13 +6,13 @@ import { FilmModel } from "../../../film.model";
   styleUrls: ["./film-item.component.css"]
 })
 export class FilmItemComponent implements OnInit {
-  @Input() film = <any>{};
-  @Output() markFavorite = new EventEmitter();
-  // film: Film[];
+  @Input() film = <any>{}; // Film[];
+  @Output() markFavorite = new EventEmitter<number>();
+
   checked: boolean;
   constructor() {}
   ngOnInit() {}
-  addToFavorites() {
-    this.markFavorite.emit(this.checked);
+  sendToParents(_filmId) {
+    this.markFavorite.emit(_filmId);
   }
 }

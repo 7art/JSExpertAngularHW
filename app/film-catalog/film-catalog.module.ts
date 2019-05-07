@@ -18,6 +18,7 @@ import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatButtonToggleModule } from "@angular/material";
 import { MatSlideToggleModule } from "@angular/material";
 import { MatCheckboxModule } from "@angular/material/checkbox";
+import { MatIconModule } from "@angular/material/icon";
 
 @NgModule({
   imports: [
@@ -32,7 +33,8 @@ import { MatCheckboxModule } from "@angular/material/checkbox";
     MatToolbarModule,
     MatButtonToggleModule,
     MatSlideToggleModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatIconModule
   ],
   declarations: [
     MainComponent,
