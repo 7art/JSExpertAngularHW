@@ -8,7 +8,6 @@ import { FilmModel } from "../../film.model";
 })
 export class FilmsComponent implements OnInit {
   films: FilmModel[];
-  initDataFilmsLength: number;
   selectedOption: number;
   favoriteCount = 0;
   filterOptions = [
@@ -20,7 +19,6 @@ export class FilmsComponent implements OnInit {
   itemsInRow = 3;
   itemStart = 0;
   itemEnd = this.itemsInRow;
-  // showOptions = { start: 0, end: this.itemsInRow };
   value = "";
   searchStarted = false;
   notFoundFilm = false;
@@ -34,30 +32,27 @@ export class FilmsComponent implements OnInit {
   }
   doSort() {
     this.searchStarted = false;
-    this.itemStart = 0;
     this.itemEnd = 3;
     this.showMoreBtnDis = false;
-    this.films = this.filmService.sortFilms(this.selectedOption);
+    this.filmService.sortFilms(this.selectedOption);
     this.films = this.filmService.getFilms(this.itemStart, this.itemEnd);
   }
   changeFavorites(filmId: number) {
-    this.films = this.filmService.changeFavoriteProperty(filmId);
-    this.films = this.filmService.getFilms(this.itemStart, this.itemEnd);
+    this.filmService.changeFavoriteProperty(filmId);
+    this.films = this.searchStarted
+      ? this.filmService.getSearchFilms(this.itemStart, this.itemEnd)
+      : this.filmService.getFilms(this.itemStart, this.itemEnd);
     this.getFavoritesCount();
   }
   getFavoritesCount() {
     this.favoriteCount = this.filmService.countFavorites();
   }
-  search(value) {
-    this.itemStart = 0;
+  search(value: string) {
     this.itemEnd = 3;
     this.showMoreBtnDis = false;
-
     if (value.length >= 3) {
       this.searchStarted = true;
-      this.films = this.filmService.setSearchFilmsResults(
-        this.filmService.searchFilms(value)
-      );
+      this.filmService.searchFilms(value);
       this.films = this.filmService.getSearchFilms(
         this.itemStart,
         this.itemEnd

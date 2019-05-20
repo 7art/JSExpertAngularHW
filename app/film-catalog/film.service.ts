@@ -171,10 +171,7 @@ export class FilmService {
   getInitDataFilmsLength() {
     return this.initFilmsData.length;
   }
-  setSearchFilmsResults(films: FilmModel[]) {
-    this.films = films;
-    return this.films;
-  }
+
   sortFilms(value: number) {
     switch (value) {
       case 1:
@@ -211,13 +208,11 @@ export class FilmService {
     this.films = this.initFilmsData.filter(film => {
       return film.name.toLowerCase().indexOf(value) === 0;
     });
-    return this.films;
   }
   changeFavoriteProperty(filmId: number) {
     const filmIndex = this.initFilmsData.findIndex(film => film.id === filmId);
     this.initFilmsData[filmIndex].favorite = !this.initFilmsData[filmIndex]
       .favorite;
-    return this.initFilmsData;
   }
   countFavorites() {
     const count = this.initFilmsData.reduce((n, film) => {

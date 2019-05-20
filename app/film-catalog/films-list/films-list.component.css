@@ -33,3 +33,8 @@ mat-card {
 .loadmorebtn {
   text-align: center
 }
+
+.favoritecount {
+  border-top: .84375em solid transparent;
+  padding-top: 20px;
+}
