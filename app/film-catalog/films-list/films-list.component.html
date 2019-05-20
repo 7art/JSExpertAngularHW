@@ -4,10 +4,21 @@
     <mat-toolbar-row>
       <span>В избранное добавлено: {{favoriteCount}} элементов</span>
       <span class="example-spacer"></span>
+      <div class="serch">
+        <mat-form-field class="serch-form-field">
+          <input matInput type="text" #box placeholder="Поиск фильмов" [(ngModel)]="value" (keyup)="search(box.value)">
+          <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear"
+            (click)="value=''; search(value)">
+            <mat-icon>close</mat-icon>
+          </button>
+        </mat-form-field>
+      </div>
       <div>
-        <mat-form-field>
+        <mat-form-field class="filter-form-field">
+
+
           <mat-select [(ngModel)]="selectedOption" (selectionChange)="doSort()" placeholder="Сортировка">
-            <mat-option *ngFor="let option of options" [value]="option.value">
+            <mat-option *ngFor="let option of filterOptions" [value]="option.value">
               {{option.name}}
             </mat-option>
           </mat-select>
@@ -22,3 +33,14 @@
     <app-film-item [film]="film" (markFavorite)="changeFavorites($event)"></app-film-item>
   </div>
 </div>
+
+<div class="film-info" *ngIf="notFoundFilm">
+  <mat-card>
+    <h2>Ничего не найдено!</h2>
+    <span>К сожалению мы не смогли ничего найти по вашему запросу.</span>
+  </mat-card>
+</div>
+
+<div class="loadmorebtn"><button mat-raised-button (click)="showMore()" [disabled]="showMoreBtnDis">
+    <b>Загрузить еще</b>
+  </button></div>

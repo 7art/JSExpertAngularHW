@@ -6,12 +6,12 @@ import { FilmModel } from "../film.model";
 })
 export class FilmService {
   constructor() {}
-  sortData: FilmModel[];
-  films: FilmModel[] = [
+  films: FilmModel[];
+  initFilmsData: FilmModel[] = [
     {
       id: 1,
       name: "Тор: Рагнарёк",
-      year: "2017",
+      year: "2021",
       imgUrl:
         "https://image.tmdb.org/t/p/w300_and_h450_bestv2/2NEzIdBAgm4kSYXF4OH86qs3a0u.jpg",
       description:
@@ -21,7 +21,7 @@ export class FilmService {
     {
       id: 2,
       name: "Чудо-женщина ",
-      year: "2017",
+      year: "2028",
       imgUrl:
         "https://image.tmdb.org/t/p/w300_and_h450_bestv2/fMnMonAyK3nzp1P1odIFzYoSvYe.jpg",
       description:
@@ -31,7 +31,7 @@ export class FilmService {
     {
       id: 3,
       name: "Звёздные Войны: Последние джеда",
-      year: "2017",
+      year: "2020",
       imgUrl:
         "https://image.tmdb.org/t/p/w300_and_h450_bestv2/qP4gdqvE4KsFqkeY9EdVRCA8ahj.jpg",
       description:
@@ -41,7 +41,7 @@ export class FilmService {
     {
       id: 4,
       name: "Бегущий по лезвию 2049",
-      year: "2017",
+      year: "2020",
       imgUrl:
         "https://image.tmdb.org/t/p/w300_and_h450_bestv2/lxFTHZHBHRXcuzR9ygpMGP1kEKr.jpg",
       description:
@@ -51,7 +51,7 @@ export class FilmService {
     {
       id: 5,
       name: "Лига справедливости",
-      year: "2017",
+      year: "2019",
       imgUrl:
         "https://image.tmdb.org/t/p/w300_and_h450_bestv2/e2f1GaWLkk5Sj7cZMi38mUPXYdt.jpg",
       description:
@@ -61,7 +61,7 @@ export class FilmService {
     {
       id: 6,
       name: "Чужой. Завет",
-      year: "2017",
+      year: "2059",
       imgUrl:
         "https://image.tmdb.org/t/p/w300_and_h450_bestv2/5ff1DVsSL7CP5zIjr8ayHaaHScP.jpg",
       description:
@@ -91,7 +91,7 @@ export class FilmService {
     {
       id: 9,
       name: "Tomb Raider: Лара Крофт",
-      year: "2018",
+      year: "2017",
       imgUrl:
         "https://image.tmdb.org/t/p/w300_and_h450_bestv2/6NUZPCujVGbewamFAnRfBKy4F4C.jpg",
       description:
@@ -101,7 +101,7 @@ export class FilmService {
     {
       id: 10,
       name: "Стражи Галактики",
-      year: "2014",
+      year: "2046",
       imgUrl:
         "https://image.tmdb.org/t/p/w300_and_h450_bestv2/L6U6zH3N39toWXIjvfPjxgRXuG.jpg",
       description:
@@ -111,7 +111,7 @@ export class FilmService {
     {
       id: 11,
       name: "Тихоокеанский рубеж 2",
-      year: "2018",
+      year: "2015",
       imgUrl:
         "https://image.tmdb.org/t/p/w300_and_h450_bestv2/hAR6AdEKMVQXrcTt1hnaEU7YvSX.jpg",
       description:
@@ -127,39 +127,100 @@ export class FilmService {
       description:
         "Наше время на Земле подошло к концу, команда исследователей берет на себя самую важную миссию в истории человечества; путешествуя за пределами нашей галактики, чтобы узнать есть ли у человечества будущее среди звезд.",
       favorite: true
+    },
+    {
+      id: 13,
+      name: "Интерстеллар",
+      year: "2014",
+      imgUrl:
+        "https://image.tmdb.org/t/p/w300_and_h450_bestv2/5IGqQ86P8dfpNShocqz8rx38mv0.jpg",
+      description:
+        "Наше время на Земле подошло к концу, команда исследователей берет на себя самую важную миссию в истории человечества; путешествуя за пределами нашей галактики, чтобы узнать есть ли у человечества будущее среди звезд.",
+      favorite: true
+    },
+    {
+      id: 14,
+      name: "Интерстеллар",
+      year: "2014",
+      imgUrl:
+        "https://image.tmdb.org/t/p/w300_and_h450_bestv2/5IGqQ86P8dfpNShocqz8rx38mv0.jpg",
+      description:
+        "Наше время на Земле подошло к концу, команда исследователей берет на себя самую важную миссию в истории человечества; путешествуя за пределами нашей галактики, чтобы узнать есть ли у человечества будущее среди звезд.",
+      favorite: true
+    },
+    {
+      id: 15,
+      name: "Интерстеллар",
+      year: "2014",
+      imgUrl:
+        "https://image.tmdb.org/t/p/w300_and_h450_bestv2/5IGqQ86P8dfpNShocqz8rx38mv0.jpg",
+      description:
+        "Наше время на Земле подошло к концу, команда исследователей берет на себя самую важную миссию в истории человечества; путешествуя за пределами нашей галактики, чтобы узнать есть ли у человечества будущее среди звезд.",
+      favorite: true
     }
   ];
-  getFilms() {
-    return [...this.films];
+  getFilms(start: number, end: number) {
+    return (this.films = [...this.initFilmsData.slice(start, end)]);
   }
-  sortFilms(value) {
-    switch (value) {
-      case 1:
-        return this.films.sort(function(a, b) {
-          return b.name < a.name ? 1 : -1;
-        });
-      case 2:
-        return this.films.sort(function(a, b) {
-          return b.name > a.name ? 1 : -1;
-        });
-      case 3:
-        return this.films.sort(function(a, b) {
-          return b.year < a.year ? 1 : -1;
-        });
-      case 4:
-        return this.films.sort(function(a, b) {
-          return b.year > a.year ? 1 : -1;
-        });
-    }
+  getSearchFilms(start: number, end: number) {
+    return this.films.slice(start, end);
   }
-  changeFavoriteProperty(filmId) {
-    const objIndex = this.films.findIndex(obj => obj.id === filmId);
-    console.log(objIndex);
-    this.films[objIndex].favorite = !this.films[objIndex].favorite;
+  getSearchFilmsLength() {
+    return this.films.length;
+  }
+  getInitDataFilmsLength() {
+    return this.initFilmsData.length;
+  }
+  setSearchFilmsResults(films: FilmModel[]) {
+    this.films = films;
     return this.films;
   }
+  sortFilms(value: number) {
+    switch (value) {
+      case 1:
+        return (this.films = [
+          ...this.initFilmsData.sort(function(a, b) {
+            return b.name.localeCompare(a.name);
+          })
+        ]);
+
+      case 2:
+        return (this.films = [
+          ...this.initFilmsData.sort(function(a, b) {
+            return a.name.localeCompare(b.name);
+          })
+        ]);
+
+      case 3:
+        return (this.films = [
+          ...this.initFilmsData.sort(function(a, b) {
+            return b.year < a.year ? 1 : -1;
+          })
+        ]);
+
+      case 4:
+        return (this.films = [
+          ...this.initFilmsData.sort(function(a, b) {
+            return b.year > a.year ? 1 : -1;
+          })
+        ]);
+    }
+  }
+  searchFilms(value: string) {
+    value = value.trim().toLowerCase();
+    this.films = this.initFilmsData.filter(film => {
+      return film.name.toLowerCase().indexOf(value) === 0;
+    });
+    return this.films;
+  }
+  changeFavoriteProperty(filmId: number) {
+    const filmIndex = this.initFilmsData.findIndex(film => film.id === filmId);
+    this.initFilmsData[filmIndex].favorite = !this.initFilmsData[filmIndex]
+      .favorite;
+    return this.initFilmsData;
+  }
   countFavorites() {
-    let count = this.films.reduce(function(n, film) {
+    const count = this.initFilmsData.reduce((n, film) => {
       return n + +film.favorite;
     }, 0);
     return count;

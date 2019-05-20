@@ -7,15 +7,9 @@ import { AppComponent } from "./app.component";
 import { AngularFireModule } from "@angular/fire";
 import { environment } from "../environments/environment";
 
-import { MatToolbarModule } from "@angular/material/toolbar";
-import { MatIconModule } from "@angular/material/icon";
-import { MatButtonModule } from "@angular/material/button";
-import { MatCardModule } from "@angular/material/card";
-import { MatButtonToggleModule } from "@angular/material";
-import { MatSlideToggleModule } from "@angular/material";
-import { MatCheckboxModule } from "@angular/material/checkbox";
-
 import { FilmCatalogModule } from "./film-catalog/film-catalog.module";
+import { AppMaterialModule } from "./app-material.module";
+import { MainModule } from "./main/main.module";
 
 @NgModule({
   declarations: [AppComponent],
@@ -23,14 +17,9 @@ import { FilmCatalogModule } from "./film-catalog/film-catalog.module";
     BrowserModule,
     AppRoutingModule,
     FilmCatalogModule,
+    MainModule,
     BrowserAnimationsModule,
-    MatToolbarModule,
-    MatIconModule,
-    MatButtonModule,
-    MatCardModule,
-    MatButtonToggleModule,
-    MatSlideToggleModule,
-    MatCheckboxModule,
+    AppMaterialModule,
     AngularFireModule.initializeApp(environment.firebase)
   ],
   providers: [],

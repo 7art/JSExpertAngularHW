@@ -9,7 +9,7 @@
     <img mat-card-image src="{{ film.imgUrl }}" alt="{{ film.name }}" />
   </mat-card-content>
   <mat-card-content>
-    <details-inner> {{ film.description | slice: 0:100 }}... </details-inner>
+    {{ film.description | slice: 0:100 }}...
   </mat-card-content>
   <mat-card-content>
     <button mat-button class="favbtn" (click)="sendToParents(film.id)" color="primary">

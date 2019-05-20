@@ -1,4 +1,4 @@
-mat-card  {
+mat-card {
   margin: 10px 20px;
 }
 
@@ -9,6 +9,7 @@ mat-card  {
   /* Here you can use wherever you want to specify the width and also the height of the <img>*/
   /*height: 80%;*/
 }
+
 .menu-toolbar {
   background-color: white;
 }
@@ -16,6 +17,19 @@ mat-card  {
 .example-spacer {
   flex: 1 1 auto;
 }
-.mat-form-field{
+
+.mat-form-field {
   width: 190px;
+}
+
+.serch {
+  padding-right: 10%;
+}
+
+.serch-form-field {
+  width: 220px;
+}
+
+.loadmorebtn {
+  text-align: center
 }
